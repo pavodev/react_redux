@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import SeasonDisplay from "./SeasonDisplay";
 
 class App extends Component {
   // ONLY TIME when we do direct assignement to 'this.state'
@@ -32,12 +33,7 @@ class App extends Component {
     }
 
     if (!this.state.errorMessage && this.state.lat) {
-      return (
-        <div>
-          <div>Latitude: {this.state.lat}</div>
-          <div>Longitude: {this.state.lon}</div>
-        </div>
-      );
+      return <SeasonDisplay lat={this.state.lat} lon={this.state.lon} />;
     }
 
     return <div>Loading</div>;
