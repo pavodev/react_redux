@@ -20,18 +20,28 @@ class App extends Component {
           lon: position.coords.longitude
         });
       },
-      error => console.error(error)
+      error => {
+        this.setState({ errorMessage: error.message });
+      }
     );
   }
 
   // this method must always be defined!
   render() {
-    return (
-      <div>
-        <div>Latitude: {this.state.lat}</div>
-        <div>Longitude: {this.state.lon}</div>
-      </div>
-    );
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
+
+    if (!this.state.errorMessage && this.state.lat) {
+      return (
+        <div>
+          <div>Latitude: {this.state.lat}</div>
+          <div>Longitude: {this.state.lon}</div>
+        </div>
+      );
+    }
+
+    return <div>Loading</div>;
   }
 }
 
