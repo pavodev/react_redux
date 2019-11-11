@@ -2,27 +2,26 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 class App extends Component {
-  constructor(props) {
-    super(props); // reference to the parent's constructor function
+  // ONLY TIME when we do direct assignement to 'this.state'
+  // IT MUST BE CALLED 'state'!!!
+  state = {
+    lat: null,
+    lon: null,
+    errorMessage: ""
+  };
 
-    // ONLY TIME when we do direct assignement to 'this.state'
-    // IT MUST BE CALLED 'state'!!!
-    this.state = {
-      lat: null,
-      lon: null,
-      errorMessage: ""
-    };
-
+  /*
+    This method is called when the jsx is rendered on the page.
+    This is the best place to do data-loading!
+  */
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
-      position => {
+      position =>
         this.setState({
           lat: position.coords.latitude,
           lon: position.coords.longitude
-        });
-      },
-      error => {
-        this.setState({ errorMessage: error.message });
-      }
+        }),
+      error => this.setState({ errorMessage: error.message })
     );
   }
 
