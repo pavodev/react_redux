@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
 import Loader from "./Loader";
+import "./index.css";
 
 class App extends Component {
   // ONLY TIME when we do direct assignement to 'this.state'
@@ -27,8 +28,7 @@ class App extends Component {
     );
   }
 
-  // this method must always be defined!
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -38,6 +38,11 @@ class App extends Component {
     }
 
     return <Loader text="Please allow access to your location..." />;
+  }
+
+  // this method must always be defined!
+  render() {
+    return <div className="border-red">{this.renderContent()}</div>;
   }
 }
 

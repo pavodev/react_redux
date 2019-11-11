@@ -5,9 +5,7 @@ const Loader = props => {
   return (
     <div className="ui segment">
       <div className="ui active inverted dimmer">
-        <div className="ui big text loader">
-          {props.text || this.defaultProps.text}
-        </div>
+        <div className="ui big text loader">{props.text}</div>
       </div>
       <p></p>
     </div>
