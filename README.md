@@ -2,6 +2,8 @@
 This repository contains a series of projects. Each one of the projects covers a series of concepts related to React and Redux.
 The explanations about these concepts are written as comments above the related code lines.
 
+<b>Projects are organized in separated branches!</b>
+
 These projects have been developed while attending the following Udemy course: <a href="https://www.udemy.com/course/react-redux/">Modern React with Redux</a> by <a href="https://github.com/StephenGrider">Stephen Grider</a>.
 
 The course covers the following notions:
