@@ -37,7 +37,7 @@ class App extends Component {
       return <SeasonDisplay lat={this.state.lat} lon={this.state.lon} />;
     }
 
-    return <Loader />;
+    return <Loader text="Please allow access to your location..." />;
   }
 }
 
