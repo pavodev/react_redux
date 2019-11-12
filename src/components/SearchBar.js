@@ -5,10 +5,17 @@ class SearchBar extends React.Component {
     term: ""
   };
 
+  onFormSubmit = event => {
+    // avoid the browser to submit the form automatically
+    // pressing enter doesn't reload the page
+    event.preventDefault();
+    this.props.onSubmit(this.state.term);
+  };
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label htmlFor="search-bar">Image Search</label>
             <input
@@ -52,3 +59,28 @@ export default SearchBar;
               onChange={callbackName}
             />
 */
+
+/* 
+      THIS ISSUE:
+        Sometimes in Javascript, the 'this' loses its reference.
+        How do this behaves in a function??
+        We always have to look where the function is called and then who called
+        the function!
+
+        class Car {
+          setDriveSound(sound) {
+            this,sound = sound;
+          }
+
+          drive() {
+            return this.sound
+          }
+        }
+
+        const car = new Car();
+        car.setDriveSound('vroom');
+        car.drive(); --> this equals to the car!!
+
+        TO SOLVE THE PROBLEM WE CAN USE ARROW FUNCTIONS
+    */
+//console.log(this.state.term);
