@@ -48,5 +48,6 @@ export default connect(mapStateToProps, { selectSong })(SongList);
         }
     }
 
+    
     connect()(); // automatically invokes the returned function
 */
