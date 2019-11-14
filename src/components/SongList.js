@@ -30,6 +30,15 @@ const mapStateToProps = state => {
   return { songs: state.songs };
 };
 
+/*  
+    Passing the object containing the action to the connect function,
+    the connect function wraps the action inside an other javascript
+    function. That function is the dispatcher! Everything is done by
+    redux in the background!
+
+    We never directly call the functions!! (selectSong() -> NO!)
+*/
+
 export default connect(mapStateToProps, { selectSong })(SongList);
 
 /* 
